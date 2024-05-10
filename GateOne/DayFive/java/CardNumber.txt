@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class CardNumber{
+
+public static void main(String[] args){
+
+Scanner input = new Scanner(System.in);
+
+System.out.print("kindly enter ur ATM details please: ");
+String AtmDetails = input.nextLine();
+
+
+
+
+
+
+
+}
+
+
+}
