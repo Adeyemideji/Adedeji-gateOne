@@ -4,11 +4,28 @@ public class PhoneBookApp{
 
 public static void main(String[] args){
 
-Scannner input = new Scanner(System.in);
+Scanner input = new Scanner(System.in);
+
+System.out.println("                     WELCOME TO MY PHONEBOOK ");
+
+System.out.print("Enter Contact First Name: ");
+String firstName = input.nextLine();
+
+System.out.print("Enter Contact Last Name: ");
+String lastName = input.nextLine();
+
+System.out.print("Enter Contact phone Number: ");
+double contactNumber = input.nextDouble();
+
+System.out.println("Saving Contact >>>>>>>>>>>>>>>>>>>>>>>>");
+
+System.out.println("Saved Successfully!!!!!!!!!!!!!");
 
 	String prompt = """
 	phonebook menu
 	list of menu options
+
+	_____________________________________
 
 	1 -> Add Contact
 	2 -> Remove Contact
@@ -18,27 +35,16 @@ Scannner input = new Scanner(System.in);
 	6 -> Edit Contact 
 	""";
 
-		String AddContactPrompt = """
-		1 -> Contact Name
-		2 -> Contact Address
-		3 -> Contact Number
-		4 -> Contact Email
-		5 -> Save
-		6 -> Back
-		""";
-
-	String RemoveContactPrompt = """
-	1 -> Search for Contact Name
-	2 -> Delete Contact
-	3 -> Back
+	String AddContactPrompt = """
+	1 -> Contact Name
+	2 -> Contact Address
+	3 -> Contact Number
+	4 -> Contact Email
+	5 -> Save
+	6 -> Back
 	""";
-
-		
-
-
 
 
 }
-
 
 }
