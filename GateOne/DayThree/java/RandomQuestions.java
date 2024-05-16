@@ -24,7 +24,7 @@ int numberTwo = 0;
 
 	int answer = numbersOne + numbersTwo;
 
-	System.out.print("what is " +numberOne+ " + "+numberTwo+ " ? ");
+	System.out.print("what is " +numbersOne+ " + "+numbersTwo+ " = ");
 	int questionAnswer = input.nextInt();
 
 	if(questionAnswer == answer){
