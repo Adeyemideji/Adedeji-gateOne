@@ -3,176 +3,163 @@ import java.util.ArrayList;
 
 public class PhoneBookApp{
 
-public static void main(String[] args){
+private static ArrayList<String[]> contacts = new ArrayList<>();
+
+public static void main(String[] args) {
 
 Scanner input = new Scanner(System.in);
 
-static ArrayList<String[]> contact = new ArrayList<>();
 while (true){
-System.out.print("1. Add contact");
-System.out.print("2. remove contact");
-System.out.print("3. Find Contact By First Name");
-System.out.print("4. Find Contact By last Name");
-System.out.print("5. Find Contact By Contact Name");
-System.out.print("6. Edit Contact");
-System.out.print("7. Exit");
+System.out.println("1. Add contact");
+System.out.println("2. Remove contact");
+System.out.println("3. find contact by phone number");
+System.out.println("4. find contact by first name");
+System.out.println("5. find contact by last name");
+System.out.println("6. Edit contact");
+System.out.println("7. Exit");
+System.out.print("Choose an option:");
 String userInput = input.next();
-                                                              
 switch (userInput){
-			case "1":
-				addContact(input);
-				break;
-			case "2":
-				removeContact(input);
-				break;
-			case "3":
-                    			findContactsByFirstName(input);
-                   			 break;
-			case "4":
-                    			findContactByLastName(input);
-                   			 break;
-			case "5":
-				findContactByContactNumber(input);
-				break;
-			case "6":
-				editContact(input);
-				break;
-			case "7":
-				System.exit(0);
+case "1":
+	addContact(input);
+	break;
+	case "2":
+	removeContact(input);
+	break;
+	case "3":
+        findContactByPhoneNumber(input);
+        break;
+	case "4":
+        findContactsByFirstName(input);
+        break;
+	case "5":
+	findContactByLastName(input);
+	break;
+	case "6":
+	editContact(input);
+	break;
+	case "7":
+	System.exit(0);
 			
 
-			}
-
+}
+}
 }
 
-
-	}
-
-static void addContact(Scanner input){
-
-System.out.print("Enter Contact first Name: ");
-String firstName = input.nextLine();
-
-System.out.print("Enter Contact last Name: ");
-String lastName = input.nextLine();
-
-System.out.print("Enter Contact phone Number: ");
-String contactNumber = input.next();
-
-contacts.add(new String[]{firstname, lastName, contactNumber});
-
-System.out.println("Saving Contact >>>>>>>>>>>>>>>>>>>>>>>>");
-
-System.out.println("Saved Successfully!!!!!!!!!!!!!");
-
-}
-
-static void removeContact(Scanner input){
-
-System.out.print("Enter Contact phone Number: ");
-String contactNumber = input.next();
-
-
-System.out.println("Deleting contact >>>>>>>>>>>>>>>>>>>>>>");
-
-System.out.println("Deleted successfully !!!!!!");
-
-for(int counter = 0; counter < contact.size(); counter++){
-	if (contact.get(counter)[2].equals(contactNumber)){
-	contact.remove(counter);
-	System.out.println("contact has been removed successfully"); 
-	return;
-	}
-
-
-}
-System.out.println("The contact you searched for is not found");
-System.out.println(" \n ");
-3
-}
-static void findContactByFirstName(Scanner input){
-
-System.out.print("Enter The contact First Name");
+public static void addContact(Scanner input){
+System.out.print("Enter contact first name: ");
 String firstName = input.next();
 
-for(String[] contact : contacts){
-	if(contact[2].equals(firstName)){
-	System.out.println("The Contact Name: " + contact[0]+" "+contact[1]);
-	System.out.println("The Contact Number: " + contact[2]);
-	System.out.println(" \n ");
-	return;
-	}
-
-}
-System.out.println("The contact you searched for is not found");
-System.out.println(" \n ");
-
-}
-static void findContactByLastName(Scanner input){
-
-System.out.print("Enter The contact Last Name");
+System.out.print("Enter contact last name: ");
 String lastName = input.next();
 
-for(String[] contact : contacts){
-	if(contact[2].equals(lastName)){
-	System.out.println("The Contact Name: " + contact[0]+" "+contact[1]);
-	System.out.println("The Contact Number: " + contact[2]);
-	System.out.println(" \n ");
-	return;
-	}
-
-}
-System.out.println("The contact you searched for is not found");
-System.out.println(" \n ");
-
-}
-static void findContactByContactNumber(Scanner input){
-
-System.out.print("enter contact number you want to search for");
+System.out.print("Enter contact number: ");
 String contactNumber = input.next();
 
-for(String[] contact : contacts){
-	if(contact[2].equals(contactNumber)){
-	System.out.println("The Contact Name: " + contact[0]+" "+contact[1]);
-	System.out.println("The Contact Number: " + contact[2]);
-	System.out.println(" \n ");
+contacts.add(new String[] {firstName, lastName, contactNumber});
+
+System.out.println("Saving contact >>>>>>>>>>>>>>>>>>>>>>>>");
+
+System.out.println("Contact saved successfully");
+
+
+}
+
+public static void removeContact(Scanner input){
+
+System.out.print("Enter the contact name u want to remove: ");
+String contactName = input.next();
+
+for(int count = 0; count < contacts.size(); count ++){
+	if (contacts.get(count)[2].equals(contactName)){
+	contacts.remove(count);
+	System.out.println("Contact removed sucessfully");
 	return;
 	}
+	
+}
+System.out.println("contact searched for is not found");
 
 }
-System.out.println("The contact you searched for is not found");
-System.out.println(" \n ");
-
-}
-
-static void editContact(Scanner input){
-
-System.out.print("Enter Contact Number you Want to Edit: ");
+public static void findContactByPhoneNumber(Scanner input){
+System.out.print("Enter phone number to search");
 String contactNumber = input.next();
 
-for(int counter = 0; counter < contact.size(); counter++){
-	if(contact.get(counter)[2].equals(contactNumber)){ 
+for (String[] contact : contacts) {
+	if (contact[2].equals(contactNumber)) {
+	System.out.println("contact name: " + contact[0]+" "+contact[1]);
+	System.out.println("contact number: " + contact[2]);
 
-	System.out.print("Enter Contact First Name you want to edit: ");
-	String firstEdit = input.nextLine();
+	return;
+        }
+}
+System.out.println("contact searched for is not found");
 
-	System.out.print("Enter Contact last Name you want to edit: ");
-	String lastEdit = input.nextLine();
+}
 
-	System.out.print("Enter Contact phone Number you want to edit: ");
-	String numberEdit = input.next();
-
-	System.out.println("Editting Contact >>>>>>>>>>>>>>>>>>>>>>>>");
-
-	System.out.println("Editted Successfully!!!!!!!!!!!!!");
+public static void findContactsByFirstName(Scanner input){
+System.out.print("Enter contact first Name: ");
+String contactFirstName = input.next();
+for (String[] contact : contacts){
+	if (contact[0].equals(contactFirstName )){
+	System.out.println("Contact name: "+contact[0]+" "+contact[1]);
+	System.out.println("contact number: " +contact[2]);
 	System.out.println(" \n ");
 	return;
 	}
+		
 }
-System.out.println("The contact you searched for is not found");
-System.out.println(" \n ");
+System.out.print("contact searched for is not found");
 
 
-}	
+	}
+
+public static void findContactByLastName(Scanner input){
+System.out.print("Enter contact last name: ");
+String contactLastName = input.next();
+
+for(String[] contact : contacts){
+	if (contact[1].equals(contactLastName)){
+		System.out.println("Contact name: "+contact[0]+" "+contact[1]);
+		System.out.println("contact number: " +contact[2]);
+		System.out.println(" \n ");
+		return;
+	}
+}
+System.out.print("contact searched for is not found");
+
+
+}
+public static void editContact(Scanner input){
+System.out.println("Enter contact number you want to edit : ");
+String editContactNumber = input.next();
+
+for (int count = 0; count < contacts.size(); count++){
+	if (contacts.get(count)[2].equals(editContactNumber)){
+	System.out.println("Enter Editted First Name:");
+	String edittedFirstName = input.next();
+
+	System.out.print("Enter Editted new last Name:");
+	String edittedLastName = input.next();
+
+	System.out.print("Enter Editted new Contact number:");
+	String newNumber = input.next();
+
+	contacts.set(count, new String[]{edittedFirstName, edittedLastName, newNumber});
+
+	System.out.println("Editting >>>>>>>>>>>>>>>>>>>>>>>>");
+	System.out.println("Contact edited succesfully");
+	return;
+	}
+	}
+	System.out.println("contact searched for is not found");	
+	
+
+}
+
+
+
+
+
 
 }

@@ -24,8 +24,7 @@ System.out.print("Enter your menstrual cycle length: ");
 int length = input.nextInt();
 String result = getNextPeriodStartDate(date, length);
 System.out.println(result);
-
-
+String [] safePeriodgetFirstSafePeriods(date,length);
 
 
 
